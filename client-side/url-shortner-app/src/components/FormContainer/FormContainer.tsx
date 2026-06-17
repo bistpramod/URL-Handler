@@ -1,6 +1,17 @@
-import React from 'react'
+import React from 'react';
+import axios from "axios";
+
 
 const FormContainer: React.FC = () => {
+    const [fullUrl, setFullUrl] = React.useState<string>("0");
+    const handleSubmit =  async(e: React.FormEvent<HTMLFormElement>)=>{
+    e.preventDefault(); // so that page doent reset when clicked on sort the url button
+    try{
+
+    }catch(e){
+
+    }
+    }
   return (
     <div className="mx-auto max-w-3xl">
       {/* hero card — banner image with a dark overlay so text stays readable */}
@@ -21,7 +32,7 @@ const FormContainer: React.FC = () => {
           </p>
 
           {/* fixed broken classes like text-red etc*/}
-          <form
+          <form onSubmit ={handleSubmit}
             className="glass-card mx-auto mt-10 max-w-xl text-left"
             onSubmit={(e) => e.preventDefault()}
           >
@@ -36,11 +47,14 @@ const FormContainer: React.FC = () => {
                   urlshortner.link/
                 </span>
                 <input
+                value = {fullUrl}   
+                
                   id="url-input"
                   type="url"
                   required
                   placeholder="https://example.com/my-long-page"
                   className="w-full rounded-xl border border-white/10 bg-slate-900/60 py-3.5 pl-[8.5rem] pr-4 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-violet-400 focus:ring-2 focus:ring-violet-400/30"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFullUrl(e.target.value)}
                 />
               </div>
 
