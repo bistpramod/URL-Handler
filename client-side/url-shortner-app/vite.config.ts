@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+// FIX: @tailwindcss/vite is the Tailwind v4 plugin — do not mix with PostCSS + @tailwind directives
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
