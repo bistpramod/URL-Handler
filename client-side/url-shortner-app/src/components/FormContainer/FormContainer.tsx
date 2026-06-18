@@ -1,17 +1,20 @@
-import React from 'react';
-import axios from "axios";
-
+import React from 'react'
+import axios from 'axios'
 
 const FormContainer: React.FC = () => {
-    const [fullUrl, setFullUrl] = React.useState<string>("0");
-    const handleSubmit =  async(e: React.FormEvent<HTMLFormElement>)=>{
-    e.preventDefault(); // so that page doent reset when clicked on sort the url button
-    try{
+  const [fullUrl, setFullUrl] = React.useState('')
 
-    }catch(e){
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault() // stops the page from refreshing on submit
 
+    try {
+      // wire this up once your backend route is ready
+      // const res = await axios.post('/api/shorten', { url: fullUrl })
+      console.log('URL to shorten:', fullUrl)
+    } catch (err) {
+      console.error(err)
     }
-    }
+  }
   return (
     <div className="mx-auto max-w-3xl">
       {/* hero card — banner image with a dark overlay so text stays readable */}
@@ -32,9 +35,9 @@ const FormContainer: React.FC = () => {
           </p>
 
           {/* fixed broken classes like text-red etc*/}
-          <form onSubmit ={handleSubmit}
+          <form
+            onSubmit={handleSubmit}
             className="glass-card mx-auto mt-10 max-w-xl text-left"
-            onSubmit={(e) => e.preventDefault()}
           >
             <label htmlFor="url-input" className="mb-2 block text-sm font-medium text-slate-300">
               Enter your URL
@@ -47,9 +50,8 @@ const FormContainer: React.FC = () => {
                   urlshortner.link/
                 </span>
                 <input
-                value = {fullUrl}   
-                
                   id="url-input"
+                  value={fullUrl}
                   type="url"
                   required
                   placeholder="https://example.com/my-long-page"

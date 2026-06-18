@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    // read TypeScript from src/, write compiled JS into dist/
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // match Node + ES modules (same as "type": "module" in package.json)
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "esnext",
+
+    // Node built-ins like process.env need @types/node
+    "types": ["node"],
+
+    "sourceMap": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true
+  },
+  // only compile backend source files — not node_modules
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
